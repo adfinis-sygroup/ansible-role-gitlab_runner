@@ -13,7 +13,7 @@
     name: '{{ gitlab_runnner_package_list }}'
     enablerepo: runner_gitlab-runner
     state: present
-  register: gitlab_runnner_register_package_installation
+  register: gitlab_runner_register_package_installation
   retries: 5
   delay: 2
-  until: gitlab_runnner_register_package_installation is success
+  until: gitlab_runner_register_package_installation is success
