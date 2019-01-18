@@ -1,1 +1,14 @@
 ---
+
+# The URL of the GitLab to register to
+gitlab_runner_ci_url: 'https://git.example.com'
+
+# The token needed for registering the runner
+# https://git.adfinis-sygroup.ch/admin/runners
+gitlab_runner_ci_token: 'my_ci_token'
+
+# The docker images used as default image
+gitlab_runner_docker_image: 'docker:stable'
+
+# Run the container in priviledged mode or not
+gitlab_runner_docker_privileged: True
