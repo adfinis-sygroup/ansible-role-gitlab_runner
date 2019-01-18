@@ -1,68 +1,69 @@
-===============
-ROLE _TEMPLATE
-===============
+==================
+ROLE GITLAB_RUNNER
+==================
 
-.. image:: https://img.shields.io/github/license/adfinis-sygroup/ansible-role-_template.svg?style=flat-square
-  :target: https://github.com/adfinis-sygroup/ansible-role-_template/blob/master/LICENSE
+.. image:: https://img.shields.io/github/license/adfinis-sygroup/ansible-role-gitlab_runner.svg?style=flat-square
+  :target: https://github.com/adfinis-sygroup/ansible-role-gitlab_runner/blob/master/LICENSE
 
-.. image:: https://img.shields.io/travis/adfinis-sygroup/ansible-role-_template.svg?style=flat-square
-  :target: https://travis-ci.org/adfinis-sygroup/ansible-role-_template
+.. image:: https://img.shields.io/travis/adfinis-sygroup/ansible-role-gitlab_runner.svg?style=flat-square
+  :target: https://travis-ci.org/adfinis-sygroup/ansible-role-gitlab_runner
 
-.. image:: https://img.shields.io/badge/galaxy-adfinis--sygroup._template-660198.svg?style=flat-square
-  :target: https://galaxy.ansible.com/adfinis-sygroup/_template
+.. image:: https://img.shields.io/badge/galaxy-adfinis--sygroup.gitlab_runner-660198.svg?style=flat-square
+  :target: https://galaxy.ansible.com/adfinis-sygroup/gitlab_runner
 
-A brief description of the role goes here.
-
-
-Requirements
-=============
-
-Any pre-requisites that may not be covered by Ansible itself or the role
-should be mentioned here. For instance, if the role uses the EC2 module, it
-may be a good idea to mention in this section that the boto package is required.
+This role is used to install a new gitlab runner and register it.
 
 
 Role Variables
 ===============
 
-A description of the settable variables for this role should go here, including
-any variables that are in defaults/main.yml, vars/main.yml, and any variables
-that can/should be set via parameters to the role. Any variables that are read
-from other roles and/or the global scope (ie. hostvars, group vars, etc.)
-should be mentioned here as well.
+The following variables are available:
 
+.. code-block:: yaml
 
-Dependencies
-=============
+  # The URL of the GitLab to register to
+  gitlab_runner_ci_url: 'https://git.example.com'
 
-A list of other roles hosted on Galaxy should go here, plus any details in
-regards to parameters that may need to be set for other roles, or variables
-that are used from other roles.
+  # The token needed for registering the runner
+  # https://git.adfinis-sygroup.ch/admin/runners
+  gitlab_runner_ci_token: 'my_ci_token'
+
+  # The docker images used as default image
+  gitlab_runner_docker_image: 'docker:stable'
+
+  # Run the container in priviledged mode or not
+  gitlab_runner_docker_privileged: True
+
+  # The default package list
+  gitlab_runner_package_list:
+    - ca-certificates
+    - gitlab-runner
 
 
 Example Playbook
 =================
 
-Including an example of how to use your role (for instance, with variables
-passed in as parameters) is always nice for users too:
 
 .. code-block:: yaml
 
-  - hosts: servers
+  - hosts: gitlab-runners
+    vars:
+      gitlab_runner_ci_url: 'https://git.example.com'
+      gitlab_runner_ci_token: 'thisismytoken'
     roles:
-       - { role: adfinis-sygroup._template }
+       - { role: adfinis-sygroup.gitlab_runner }
 
 
 License
 ========
 
-`GPL-3.0 <https://github.com/adfinis-sygroup/ansible-role-_template/blob/master/LICENSE>`_
+`GPL-3.0 <https://github.com/adfinis-sygroup/ansible-role-gitlab_runner/blob/master/LICENSE>`_
 
 
 Author Information
 ===================
 
-_template role was written by:
+gitlab_runner role was written by:
 
 * Adfinis SyGroup AG | `Website <https://www.adfinis-sygroup.ch/>`_ | `Twitter <https://twitter.com/adfinissygroup>`_ | `GitHub <https://github.com/adfinis-sygroup>`_
 

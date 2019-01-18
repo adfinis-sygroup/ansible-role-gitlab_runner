@@ -24,6 +24,4 @@ script:
 
 notifications:
   webhooks:
-    - 'https://galaxy.ansible.com/api/v1/notifications/'
-
-# vim: set ts=2 sw=2 tw=2 :
+- 'https://galaxy.ansible.com/api/v1/notifications/'

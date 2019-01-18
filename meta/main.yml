@@ -1,26 +1,21 @@
 ---
 
-dependencies: []
+dependencies:
+  - 'adfinis-sygroup.docker'
 
 galaxy_info:
-  role_name: '_template'
+  role_name: 'gitlab_runner'
   author: 'Adfinis SyGroup AG'
-  description: ''
+  description: 'This role is used to install a docker gitlab runner'
   company: 'Adfinis SyGroup AG'
   license: 'GNU General Public License v3'
   min_ansible_version: '2.0.0'
   platforms:
-    - name: Debian
-      versions:
-        - wheezy
-        - jessie
-        - stretch
-    - name: Ubuntu
-      versions:
-        - trusty
-        - xenial
     - name: EL
       versions:
-        - 6
         - 7
-  galaxy_tags: []
+  galaxy_tags:
+    - gitlab
+    - runner
+    - docker
+    - dind
