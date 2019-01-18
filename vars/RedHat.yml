@@ -1,1 +1,5 @@
 ---
+
+gitlab_runner_package_list:
+  - ca-certificates
+  - gitlab-runner
