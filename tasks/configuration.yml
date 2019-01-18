@@ -1,9 +1,10 @@
 ---
 
 - name: check if the runner is already registered
-  shell: grep /etc/gitlab-runner/config.toml
+  command: grep token /etc/gitlab-runner/config.toml
   register: gitlab_runner_register_registered
   ignore_errors: true
+  changed_when: gitlab_runner_register_registered|failed
 
 - name: register gitlab runner
   command: |
