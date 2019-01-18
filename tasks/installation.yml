@@ -11,7 +11,7 @@
 
 - name: install required gitlab runner packages
   yum:
-    name: '{{ gitlab_runnner_package_list }}'
+    name: '{{ gitlab_runner_package_list }}'
     enablerepo: runner_gitlab-runner
     state: present
   register: gitlab_runner_register_package_installation
