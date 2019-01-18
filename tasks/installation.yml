@@ -1,1 +1,19 @@
 ---
+
+- name: configure the gitlab runner repository
+  yum_repository:
+    name: runner_gitlab-runner
+    baseurl: https://packages.gitlab.com/runner/gitlab-runner/el/7/$basearch
+    gpgkey: https://packages.gitlab.com/runner/gitlab-runner/gpgkey
+    gpgcheck: yes
+    enabled: no
+
+- name: install required gitlab runner packages
+  yum:
+    name: '{{ gitlab_runnner_package_list }}'
+    enablerepo: runner_gitlab-runner
+    state: present
+  register: gitlab_runner_register_package_installation
+  retries: 5
+  delay: 2
+  until: gitlab_runner_register_package_installation is success

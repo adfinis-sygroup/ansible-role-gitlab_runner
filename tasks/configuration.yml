@@ -1,1 +1,17 @@
 ---
+
+- name: check if the runner is already registered
+  command: grep token /etc/gitlab-runner/config.toml
+  register: gitlab_runner_register_registered
+  ignore_errors: true
+  changed_when: gitlab_runner_register_registered|failed
+
+- name: register gitlab runner
+  command: |
+    gitlab-runner register -n \
+    --url '{{ gitlab_runner_ci_url }}' \
+    --registration-token '{{ gitlab_runner_ci_token }}' \
+    --executor docker \
+    --docker-image '{{ gitlab_runner_docker_image }}' \
+    --docker-privileged
+  when: gitlab_runner_register_registered|failed
