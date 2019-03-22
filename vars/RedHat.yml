@@ -3,3 +3,6 @@
 gitlab_runner_package_list:
   - ca-certificates
   - gitlab-runner
+
+# The default gpg key for the yum repository
+gitlab_runner_gpg_key_url: https://packages.gitlab.com/gpg.key

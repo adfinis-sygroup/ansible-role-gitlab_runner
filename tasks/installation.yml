@@ -4,7 +4,7 @@
   yum_repository:
     name: runner_gitlab-runner
     baseurl: https://packages.gitlab.com/runner/gitlab-runner/el/7/$basearch
-    gpgkey: https://packages.gitlab.com/runner/gitlab-runner/gpgkey
+    gpgkey: '{{ gitlab_runner_gpg_key_url }}'
     gpgcheck: yes
     enabled: no
     description: gitlab runner repository
